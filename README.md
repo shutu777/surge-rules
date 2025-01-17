@@ -45,10 +45,10 @@
 
 ```
 # 域名规则
-RULE-SET,https://cdn.jsdelivr.net/gh/用户名/仓库名@release/ruleset/netflix.list,NETFLIX
+RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/netflix.list,NETFLIX
 
 # IP规则
-RULE-SET,https://cdn.jsdelivr.net/gh/用户名/仓库名@release/ruleset/netflix-ip.list,NETFLIX
+RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/netflix-ip.list,NETFLIX
 ```
 
 2. 规则更新时会自动发布新的 Release 并更新 release 分支
