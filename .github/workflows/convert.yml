@@ -56,53 +56,71 @@ jobs:
 
       - name: Generate domain rules
         run: |
+          process_domain_rules() {
+            local input_file=$1
+            local output_file=$2
+            
+            while IFS= read -r line; do
+              # 跳过注释和空行
+              [[ "$line" =~ ^#|^$ ]] && continue
+              
+              if [[ "$line" == +.* ]]; then
+                # 如果以 +. 开头，删除 +. 并使用 DOMAIN-SUFFIX
+                echo "DOMAIN-SUFFIX,${line#+.}" >> "$output_file"
+              else
+                # 否则使用 DOMAIN
+                echo "DOMAIN,${line}" >> "$output_file"
+              fi
+            done
+          }
+
           # Private
-          curl -sSL ${private} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/private.list
+          curl -sSL ${private} | process_domain_rules /dev/stdin ruleset/private.list
 
           # CN
-          curl -sSL ${cn} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/cn.list
+          curl -sSL ${cn} | process_domain_rules /dev/stdin ruleset/cn.list
 
           # Apple CN
-          curl -sSL ${apple_cn} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/apple-cn.list
+          curl -sSL ${apple_cn} | process_domain_rules /dev/stdin ruleset/apple-cn.list
 
           # GitHub
-          curl -sSL ${github} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/github.list
+          curl -sSL ${github} | process_domain_rules /dev/stdin ruleset/github.list
 
           # YouTube
-          curl -sSL ${youtube} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/youtube.list
+          curl -sSL ${youtube} | process_domain_rules /dev/stdin ruleset/youtube.list
 
           # Google
-          curl -sSL ${google} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/google.list
+          curl -sSL ${google} | process_domain_rules /dev/stdin ruleset/google.list
 
           # Telegram
-          curl -sSL ${telegram} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/telegram.list
+          curl -sSL ${telegram} | process_domain_rules /dev/stdin ruleset/telegram.list
 
           # Netflix
-          curl -sSL ${netflix} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/netflix.list
+          curl -sSL ${netflix} | process_domain_rules /dev/stdin ruleset/netflix.list
 
           # AI Chat
-          curl -sSL ${ai_chat} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/ai-chat.list
+          curl -sSL ${ai_chat} | process_domain_rules /dev/stdin ruleset/ai-chat.list
 
           # Microsoft
-          curl -sSL ${microsoft} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/microsoft.list
+          curl -sSL ${microsoft} | process_domain_rules /dev/stdin ruleset/microsoft.list
 
           # TikTok
-          curl -sSL ${tiktok} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/tiktok.list
+          curl -sSL ${tiktok} | process_domain_rules /dev/stdin ruleset/tiktok.list
 
           # PayPal
-          curl -sSL ${paypal} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/paypal.list
+          curl -sSL ${paypal} | process_domain_rules /dev/stdin ruleset/paypal.list
 
           # Speedtest
-          curl -sSL ${speedtest} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/speedtest.list
+          curl -sSL ${speedtest} | process_domain_rules /dev/stdin ruleset/speedtest.list
 
           # Games
-          curl -sSL ${games} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/games.list
+          curl -sSL ${games} | process_domain_rules /dev/stdin ruleset/games.list
 
           # Game Accelerator CN
-          curl -sSL ${game_accelerator_cn} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/game-accelerator-cn.list
+          curl -sSL ${game_accelerator_cn} | process_domain_rules /dev/stdin ruleset/game-accelerator-cn.list
 
           # Geolocation not CN
-          curl -sSL ${geolocation_not_cn} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/geolocation-not-cn.list
+          curl -sSL ${geolocation_not_cn} | process_domain_rules /dev/stdin ruleset/geolocation-not-cn.list
 
       - name: Generate IP rules
         run: |
