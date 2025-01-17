@@ -130,17 +130,35 @@ jobs:
 
       - name: Generate IP rules
         run: |
+          process_ip_rules() {
+            local input_file=$1
+            local output_file=$2
+            
+            while IFS= read -r line; do
+              # 跳过注释和空行
+              [[ "$line" =~ ^#|^$ ]] && continue
+              
+              if [[ "$line" =~ ":" ]]; then
+                # IPv6 地址
+                echo "IP-CIDR6,${line},no-resolve" >> "$output_file"
+              else
+                # IPv4 地址
+                echo "IP-CIDR,${line},no-resolve" >> "$output_file"
+              fi
+            done
+          }
+
           # CN IP
-          curl -sSL ${cn_ip} | grep -v '^#' | sed 's/^/IP-CIDR,/' > ruleset/cn-ip.list
+          curl -sSL ${cn_ip} | process_ip_rules /dev/stdin ruleset/cn-ip.list
 
           # Google IP
-          curl -sSL ${google_ip} | grep -v '^#' | sed 's/^/IP-CIDR,/' > ruleset/google-ip.list
+          curl -sSL ${google_ip} | process_ip_rules /dev/stdin ruleset/google-ip.list
 
           # Netflix IP
-          curl -sSL ${netflix_ip} | grep -v '^#' | sed 's/^/IP-CIDR,/' > ruleset/netflix-ip.list
+          curl -sSL ${netflix_ip} | process_ip_rules /dev/stdin ruleset/netflix-ip.list
 
           # Telegram IP
-          curl -sSL ${telegram_ip} | grep -v '^#' | sed 's/^/IP-CIDR,/' > ruleset/telegram-ip.list
+          curl -sSL ${telegram_ip} | process_ip_rules /dev/stdin ruleset/telegram-ip.list
 
       - name: Release and upload assets
         uses: softprops/action-gh-release@v2
