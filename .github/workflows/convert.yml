@@ -77,18 +77,16 @@ jobs:
               
               # 移除可能的 +. 前缀
               if [[ "$line" == +.* ]]; then
+                # 如果有 +. 前缀，一定使用 DOMAIN-SUFFIX
                 line="${line#+.}"
+                echo "DOMAIN-SUFFIX,${line}" >> "$output_file"
+                continue
               fi
               
-              # 根据域名格式决定使用哪种规则
+              # 处理其他情况
               if [[ "$line" == *.* ]]; then
-                if [[ "$line" =~ ^[a-zA-Z0-9][-a-zA-Z0-9]*\.[a-zA-Z0-9][-a-zA-Z0-9]*\.[a-zA-Z]{2,}$ || "$line" =~ ^[a-zA-Z0-9][-a-zA-Z0-9]*\.[a-zA-Z]{2,}$ ]]; then
-                  # 完整域名使用 DOMAIN
-                  echo "DOMAIN,${line}" >> "$output_file"
-                else
-                  # 包含 . 但不是完整域名的使用 DOMAIN-SUFFIX
-                  echo "DOMAIN-SUFFIX,${line}" >> "$output_file"
-                fi
+                # 包含 . 的使用 DOMAIN-SUFFIX
+                echo "DOMAIN-SUFFIX,${line}" >> "$output_file"
               else
                 # 不包含 . 的使用 DOMAIN-KEYWORD
                 echo "DOMAIN-KEYWORD,${line}" >> "$output_file"
