@@ -13,6 +13,8 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Set variables
@@ -116,11 +118,6 @@ jobs:
           # Telegram IP
           curl -sSL ${telegram_ip} | grep -v '^#' | sed 's/^/IP-CIDR,/' > ruleset/telegram-ip.list
 
-      - name: Move files to publish directory
-        run: |
-          mkdir -p publish
-          cp -r ruleset ./publish/
-
       - name: Release and upload assets
         uses: softprops/action-gh-release@v2
         with:
@@ -129,25 +126,21 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            ./publish/*
+            ruleset/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Git push assets to "release" branch
         run: |
-          cd publish || exit 1
-          git init
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -b release
-          git add .
+          git add ruleset/
           git commit -m "${{ env.RELEASE_NAME }}"
-          git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
-          git push -f -u origin release
+          git push -f origin release
 
       - name: Purge jsdelivr CDN
         run: |
-          cd publish || exit 1
           for file in $(ls ruleset); do
             curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/ruleset/${file}"
           done
