@@ -64,12 +64,18 @@ jobs:
               # 跳过注释和空行
               [[ "$line" =~ ^#|^$ ]] && continue
               
+              # 移除可能的 +. 前缀
               if [[ "$line" == +.* ]]; then
-                # 如果以 +. 开头，删除 +. 并使用 DOMAIN-SUFFIX
-                echo "DOMAIN-SUFFIX,${line#+.}" >> "$output_file"
+                line="${line#+.}"
+              fi
+              
+              # 根据是否包含 . 决定使用哪种规则
+              if [[ "$line" == *.* ]]; then
+                # 包含 . 的使用 DOMAIN-SUFFIX
+                echo "DOMAIN-SUFFIX,${line}" >> "$output_file"
               else
-                # 否则使用 DOMAIN
-                echo "DOMAIN,${line}" >> "$output_file"
+                # 不包含 . 的使用 DOMAIN-KEYWORD
+                echo "DOMAIN-KEYWORD,${line}" >> "$output_file"
               fi
             done
           }
