@@ -2,6 +2,17 @@
 
 这个项目自动将 Mihomo (Meta) 规则转换为 Surge 规则格式。
 
+## 简介
+
+本项目生成适用于 **Surge** 的规则集（RULE-SET），使用 GitHub Actions 每 12 小时自动更新一次，保证规则最新。
+
+## 说明
+
+本项目规则集的数据主要来源于：
+
+- [@Loyalsoldier/surge-rules](https://github.com/Loyalsoldier/surge-rules)：Surge 规则集格式参考
+- [@MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)：规则数据来源
+
 ## 在线地址 (URL)
 
 如果无法访问域名 raw.githubusercontent.com，可以使用第二个地址（cdn.jsdelivr.net），但是内容更新会有 12 小时的延迟。
@@ -129,6 +140,11 @@ RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/google
 - 每 12 小时自动更新一次
 - 推送到 main/master 分支时
 - 手动触发 GitHub Action 工作流
+
+## 致谢
+
+- [@Loyalsoldier/surge-rules](https://github.com/Loyalsoldier/surge-rules)
+- [@MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
 
 ## 许可证
 
