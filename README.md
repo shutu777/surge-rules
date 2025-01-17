@@ -2,57 +2,125 @@
 
 这个项目自动将 Mihomo (Meta) 规则转换为 Surge 规则格式。
 
-## 功能特点
+## 在线地址 (URL)
 
-- 自动从 MetaCubeX/meta-rules-dat 获取最新规则
-- 支持域名规则和 IP 规则转换
-- 每 12 小时自动更新一次
-- 支持手动触发更新
-- 使用 CDN 加速规则下载
-- 自动发布 Release 和更新 release 分支
+如果无法访问域名 raw.githubusercontent.com，可以使用第二个地址（cdn.jsdelivr.net），但是内容更新会有 12 小时的延迟。
 
-## 规则列表
+### DOMAIN-SET:
 
-### 域名规则
+直连域名列表 cn.txt:
 
-- private.list - 私有域名
-- cn.list - 中国域名
-- apple-cn.list - 苹果中国域名
-- github.list - GitHub 域名
-- youtube.list - YouTube 域名
-- google.list - Google 域名
-- telegram.list - Telegram 域名
-- netflix.list - Netflix 域名
-- ai-chat.list - AI 聊天相关域名
-- microsoft.list - 微软域名
-- tiktok.list - TikTok 域名
-- paypal.list - PayPal 域名
-- speedtest.list - Speedtest 域名
-- games.list - 游戏相关域名
-- game-accelerator-cn.list - 游戏加速器中国域名
-- geolocation-not-cn.list - 非中国域名
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/cn.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/cn.list
 
-### IP 规则
+Apple 在中国大陆可直连的域名列表 apple-cn.txt:
 
-- cn-ip.list - 中国 IP 地址
-- google-ip.list - Google IP 地址
-- netflix-ip.list - Netflix IP 地址
-- telegram-ip.list - Telegram IP 地址
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/apple-cn.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/apple-cn.list
+
+GitHub 域名列表 github.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/github.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/github.list
+
+YouTube 域名列表 youtube.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/youtube.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/youtube.list
+
+Google 域名列表 google.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/google.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/google.list
+
+Telegram 域名列表 telegram.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/telegram.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/telegram.list
+
+Netflix 域名列表 netflix.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/netflix.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/netflix.list
+
+AI 聊天相关域名列表 ai-chat.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/ai-chat.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/ai-chat.list
+
+微软域名列表 microsoft.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/microsoft.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/microsoft.list
+
+TikTok 域名列表 tiktok.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/tiktok.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/tiktok.list
+
+PayPal 域名列表 paypal.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/paypal.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/paypal.list
+
+Speedtest 域名列表 speedtest.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/speedtest.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/speedtest.list
+
+游戏相关域名列表 games.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/games.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/games.list
+
+游戏加速器中国域名列表 game-accelerator-cn.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/game-accelerator-cn.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/game-accelerator-cn.list
+
+非中国域名列表 geolocation-not-cn.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/geolocation-not-cn.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/geolocation-not-cn.list
+
+### IP-SET:
+
+中国 IP 地址列表 cn-ip.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/cn-ip.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/cn-ip.list
+
+Google IP 地址列表 google-ip.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/google-ip.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/google-ip.list
+
+Netflix IP 地址列表 netflix-ip.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/netflix-ip.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/netflix-ip.list
+
+Telegram IP 地址列表 telegram-ip.txt:
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/telegram-ip.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/telegram-ip.list
 
 ## 使用方法
 
-1. 在 Surge 配置文件中引用规则：
+在 Surge 配置文件中添加如下配置：
 
 ```
 # 域名规则
-RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/netflix.list,NETFLIX
+RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/cn.list,DIRECT
+RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/apple-cn.list,DIRECT
+RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/google.list,PROXY
+...
 
 # IP规则
-RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/netflix-ip.list,NETFLIX
+RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/cn-ip.list,DIRECT
+RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/google-ip.list,PROXY
+...
 ```
-
-2. 规则更新时会自动发布新的 Release 并更新 release 分支
-3. 使用 jsDelivr CDN 加速规则下载，无需担心 GitHub 连接问题
 
 ## 自动更新
 
