@@ -12,42 +12,42 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       contents: write
 
     steps:
       - name: Set variables
         run: |
-          echo "RELEASE_NAME=Released on $(date +%Y%m%d%H%M)" >> "$GITHUB_ENV"
-          echo "TAG_NAME=$(date +%Y%m%d%H%M)" >> "$GITHUB_ENV"
+          echo "RELEASE_NAME=Released on $(date +%Y%m%d%H%M)" >> $GITHUB_ENV
+          echo "TAG_NAME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
 
           # Domain rules
-          echo "private=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.list" >> "$GITHUB_ENV"
-          echo "cn=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.list" >> "$GITHUB_ENV"
-          echo "apple_cn=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple-cn.list" >> "$GITHUB_ENV"
-          echo "github=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.list" >> "$GITHUB_ENV"
-          echo "youtube=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.list" >> "$GITHUB_ENV"
-          echo "google=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.list" >> "$GITHUB_ENV"
-          echo "telegram=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.list" >> "$GITHUB_ENV"
-          echo "netflix=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.list" >> "$GITHUB_ENV"
-          echo "ai_chat=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-chat-!cn.list" >> "$GITHUB_ENV"
-          echo "microsoft=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.list" >> "$GITHUB_ENV"
-          echo "tiktok=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.list" >> "$GITHUB_ENV"
-          echo "paypal=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.list" >> "$GITHUB_ENV"
-          echo "speedtest=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/ookla-speedtest.list" >> "$GITHUB_ENV"
-          echo "games=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games.list" >> "$GITHUB_ENV"
-          echo "game_accelerator_cn=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-game-accelerator-cn.list" >> "$GITHUB_ENV"
-          echo "geolocation_not_cn=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.list" >> "$GITHUB_ENV"
-          echo "hbo=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/hbo.list" >> "$GITHUB_ENV"
-          echo "disney=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/disney.list" >> "$GITHUB_ENV"
-          echo "bahamut=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bahamut.list" >> "$GITHUB_ENV"
+          echo "private=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.list" >> $GITHUB_ENV
+          echo "cn=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.list" >> $GITHUB_ENV
+          echo "apple_cn=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple-cn.list" >> $GITHUB_ENV
+          echo "github=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.list" >> $GITHUB_ENV
+          echo "youtube=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.list" >> $GITHUB_ENV
+          echo "google=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.list" >> $GITHUB_ENV
+          echo "telegram=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.list" >> $GITHUB_ENV
+          echo "netflix=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.list" >> $GITHUB_ENV
+          echo "ai_chat=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-chat-!cn.list" >> $GITHUB_ENV
+          echo "microsoft=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.list" >> $GITHUB_ENV
+          echo "tiktok=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.list" >> $GITHUB_ENV
+          echo "paypal=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.list" >> $GITHUB_ENV
+          echo "speedtest=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/ookla-speedtest.list" >> $GITHUB_ENV
+          echo "games=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games.list" >> $GITHUB_ENV
+          echo "game_accelerator_cn=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-game-accelerator-cn.list" >> $GITHUB_ENV
+          echo "geolocation_not_cn=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.list" >> $GITHUB_ENV
+          echo "hbo=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/hbo.list" >> $GITHUB_ENV
+          echo "disney=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/disney.list" >> $GITHUB_ENV
+          echo "bahamut=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bahamut.list" >> $GITHUB_ENV
 
           # IP rules
-          echo "cn_ip=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.list" >> "$GITHUB_ENV"
-          echo "google_ip=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.list" >> "$GITHUB_ENV"
-          echo "netflix_ip=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.list" >> "$GITHUB_ENV"
-          echo "telegram_ip=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.list" >> "$GITHUB_ENV"
+          echo "cn_ip=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.list" >> $GITHUB_ENV
+          echo "google_ip=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.list" >> $GITHUB_ENV
+          echo "netflix_ip=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.list" >> $GITHUB_ENV
+          echo "telegram_ip=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.list" >> $GITHUB_ENV
         shell: bash
 
       - name: Checkout the default branch
@@ -84,61 +84,61 @@ jobs:
           }
 
           # Private
-          curl -sSL "${private}" | process_domain_rules /dev/stdin ruleset/private.list
+          curl -sSL ${private} | process_domain_rules /dev/stdin ruleset/private.list
 
           # CN
-          curl -sSL "${cn}" | process_domain_rules /dev/stdin ruleset/cn.list
+          curl -sSL ${cn} | process_domain_rules /dev/stdin ruleset/cn.list
 
           # Apple CN
-          curl -sSL "${apple_cn}" | process_domain_rules /dev/stdin ruleset/apple-cn.list
+          curl -sSL ${apple_cn} | process_domain_rules /dev/stdin ruleset/apple-cn.list
 
           # GitHub
-          curl -sSL "${github}" | process_domain_rules /dev/stdin ruleset/github.list
+          curl -sSL ${github} | process_domain_rules /dev/stdin ruleset/github.list
 
           # YouTube
-          curl -sSL "${youtube}" | process_domain_rules /dev/stdin ruleset/youtube.list
+          curl -sSL ${youtube} | process_domain_rules /dev/stdin ruleset/youtube.list
 
           # Google
-          curl -sSL "${google}" | process_domain_rules /dev/stdin ruleset/google.list
+          curl -sSL ${google} | process_domain_rules /dev/stdin ruleset/google.list
 
           # Telegram
-          curl -sSL "${telegram}" | process_domain_rules /dev/stdin ruleset/telegram.list
+          curl -sSL ${telegram} | process_domain_rules /dev/stdin ruleset/telegram.list
 
           # Netflix
-          curl -sSL "${netflix}" | process_domain_rules /dev/stdin ruleset/netflix.list
+          curl -sSL ${netflix} | process_domain_rules /dev/stdin ruleset/netflix.list
 
           # AI Chat
-          curl -sSL "${ai_chat}" | process_domain_rules /dev/stdin ruleset/ai-chat.list
+          curl -sSL ${ai_chat} | process_domain_rules /dev/stdin ruleset/ai-chat.list
 
           # Microsoft
-          curl -sSL "${microsoft}" | process_domain_rules /dev/stdin ruleset/microsoft.list
+          curl -sSL ${microsoft} | process_domain_rules /dev/stdin ruleset/microsoft.list
 
           # TikTok
-          curl -sSL "${tiktok}" | process_domain_rules /dev/stdin ruleset/tiktok.list
+          curl -sSL ${tiktok} | process_domain_rules /dev/stdin ruleset/tiktok.list
 
           # PayPal
-          curl -sSL "${paypal}" | process_domain_rules /dev/stdin ruleset/paypal.list
+          curl -sSL ${paypal} | process_domain_rules /dev/stdin ruleset/paypal.list
 
           # Speedtest
-          curl -sSL "${speedtest}" | process_domain_rules /dev/stdin ruleset/speedtest.list
+          curl -sSL ${speedtest} | process_domain_rules /dev/stdin ruleset/speedtest.list
 
           # Games
-          curl -sSL "${games}" | process_domain_rules /dev/stdin ruleset/games.list
+          curl -sSL ${games} | process_domain_rules /dev/stdin ruleset/games.list
 
           # Game Accelerator CN
-          curl -sSL "${game_accelerator_cn}" | process_domain_rules /dev/stdin ruleset/game-accelerator-cn.list
+          curl -sSL ${game_accelerator_cn} | process_domain_rules /dev/stdin ruleset/game-accelerator-cn.list
 
           # Geolocation not CN
-          curl -sSL "${geolocation_not_cn}" | process_domain_rules /dev/stdin ruleset/geolocation-not-cn.list
+          curl -sSL ${geolocation_not_cn} | process_domain_rules /dev/stdin ruleset/geolocation-not-cn.list
 
           # HBO
-          curl -sSL "${hbo}" | process_domain_rules /dev/stdin ruleset/hbo.list
+          curl -sSL ${hbo} | process_domain_rules /dev/stdin ruleset/hbo.list
 
           # Disney
-          curl -sSL "${disney}" | process_domain_rules /dev/stdin ruleset/disney.list
+          curl -sSL ${disney} | process_domain_rules /dev/stdin ruleset/disney.list
 
           # Bahamut
-          curl -sSL "${bahamut}" | process_domain_rules /dev/stdin ruleset/bahamut.list
+          curl -sSL ${bahamut} | process_domain_rules /dev/stdin ruleset/bahamut.list
 
       - name: Generate IP rules
         run: |
@@ -161,16 +161,16 @@ jobs:
           }
 
           # CN IP
-          curl -sSL "${cn_ip}" | process_ip_rules /dev/stdin ruleset/cn-ip.list
+          curl -sSL ${cn_ip} | process_ip_rules /dev/stdin ruleset/cn-ip.list
 
           # Google IP
-          curl -sSL "${google_ip}" | process_ip_rules /dev/stdin ruleset/google-ip.list
+          curl -sSL ${google_ip} | process_ip_rules /dev/stdin ruleset/google-ip.list
 
           # Netflix IP
-          curl -sSL "${netflix_ip}" | process_ip_rules /dev/stdin ruleset/netflix-ip.list
+          curl -sSL ${netflix_ip} | process_ip_rules /dev/stdin ruleset/netflix-ip.list
 
           # Telegram IP
-          curl -sSL "${telegram_ip}" | process_ip_rules /dev/stdin ruleset/telegram-ip.list
+          curl -sSL ${telegram_ip} | process_ip_rules /dev/stdin ruleset/telegram-ip.list
 
       - name: Release and upload assets
         uses: softprops/action-gh-release@v2
