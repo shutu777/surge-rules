@@ -17,104 +17,142 @@
 
 如果无法访问域名 raw.githubusercontent.com，可以使用第二个地址（cdn.jsdelivr.net），但是内容更新会有 12 小时的延迟。
 
-### DOMAIN-SET:
+### 域名规则
 
-直连域名列表 cn.txt:
+直连域名列表 cn.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/cn.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/cn.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/cn.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/cn.list
+```
 
-Apple 在中国大陆可直连的域名列表 apple-cn.txt:
+Apple 在中国大陆可直连的域名列表 apple-cn.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/apple-cn.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/apple-cn.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/apple-cn.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/apple-cn.list
+```
 
-GitHub 域名列表 github.txt:
+GitHub 域名列表 github.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/github.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/github.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/github.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/github.list
+```
 
-YouTube 域名列表 youtube.txt:
+YouTube 域名列表 youtube.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/youtube.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/youtube.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/youtube.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/youtube.list
+```
 
-Google 域名列表 google.txt:
+Google 域名列表 google.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/google.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/google.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/google.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/google.list
+```
 
-Telegram 域名列表 telegram.txt:
+Telegram 域名列表 telegram.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/telegram.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/telegram.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/telegram.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/telegram.list
+```
 
-Netflix 域名列表 netflix.txt:
+Netflix 域名列表 netflix.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/netflix.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/netflix.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/netflix.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/netflix.list
+```
 
-AI 聊天相关域名列表 ai-chat.txt:
+AI 聊天相关域名列表 ai-chat.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/ai-chat.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/ai-chat.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/ai-chat.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/ai-chat.list
+```
 
-微软域名列表 microsoft.txt:
+微软域名列表 microsoft.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/microsoft.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/microsoft.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/microsoft.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/microsoft.list
+```
 
-TikTok 域名列表 tiktok.txt:
+TikTok 域名列表 tiktok.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/tiktok.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/tiktok.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/tiktok.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/tiktok.list
+```
 
-PayPal 域名列表 paypal.txt:
+PayPal 域名列表 paypal.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/paypal.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/paypal.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/paypal.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/paypal.list
+```
 
-Speedtest 域名列表 speedtest.txt:
+Speedtest 域名列表 speedtest.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/speedtest.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/speedtest.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/speedtest.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/speedtest.list
+```
 
-游戏相关域名列表 games.txt:
+游戏相关域名列表 games.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/games.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/games.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/games.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/games.list
+```
 
-游戏加速器中国域名列表 game-accelerator-cn.txt:
+游戏加速器中国域名列表 game-accelerator-cn.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/game-accelerator-cn.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/game-accelerator-cn.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/game-accelerator-cn.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/game-accelerator-cn.list
+```
 
-非中国域名列表 geolocation-not-cn.txt:
+非中国域名列表 geolocation-not-cn.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/geolocation-not-cn.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/geolocation-not-cn.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/geolocation-not-cn.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/geolocation-not-cn.list
+```
 
-### IP-SET:
+### IP 规则
 
-中国 IP 地址列表 cn-ip.txt:
+中国 IP 地址列表 cn-ip.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/cn-ip.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/cn-ip.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/cn-ip.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/cn-ip.list
+```
 
-Google IP 地址列表 google-ip.txt:
+Google IP 地址列表 google-ip.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/google-ip.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/google-ip.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/google-ip.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/google-ip.list
+```
 
-Netflix IP 地址列表 netflix-ip.txt:
+Netflix IP 地址列表 netflix-ip.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/netflix-ip.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/netflix-ip.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/netflix-ip.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/netflix-ip.list
+```
 
-Telegram IP 地址列表 telegram-ip.txt:
+Telegram IP 地址列表 telegram-ip.txt：
 
-- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/telegram-ip.list
-- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/telegram-ip.list
+```
+https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/telegram-ip.list
+https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/telegram-ip.list
+```
 
 ## 使用方法
 
@@ -125,11 +163,14 @@ Telegram IP 地址列表 telegram-ip.txt:
 RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/cn.list,DIRECT
 RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/apple-cn.list,DIRECT
 RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/google.list,PROXY
+RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/telegram.list,PROXY
+RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/netflix.list,NETFLIX
 ...
 
 # IP规则
 RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/cn-ip.list,DIRECT
 RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/google-ip.list,PROXY
+RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/telegram-ip.list,PROXY
 ...
 ```
 
