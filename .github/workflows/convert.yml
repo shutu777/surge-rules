@@ -83,7 +83,7 @@ jobs:
               fi
               
               # 不包含点号的域名使用 DOMAIN-KEYWORD
-              if [[ "$line" != *"."* ]]; then
+              if [[ "$line" != *.* ]]; then
                 echo "DOMAIN-KEYWORD,${line}" >> "$output_file"
                 continue
               fi
