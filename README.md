@@ -140,9 +140,6 @@ Telegram IP 地址列表：
 RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/cn.list,DIRECT
 RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/apple-cn.list,DIRECT
 RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/google.list,PROXY
-RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/hbo.list,PROXY
-RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/disney.list,PROXY
-RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/bahamut.list,PROXY
 
 # IP规则
 RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/cn-ip.list,DIRECT
