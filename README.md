@@ -148,4 +148,4 @@ RULE-SET,https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/google
 
 ## 许可证
 
-MIT License
+GPL-3.0 License
