@@ -80,10 +80,15 @@ jobs:
                 line="${line#+.}"
               fi
               
-              # 根据是否包含 . 决定使用哪种规则
+              # 根据域名格式决定使用哪种规则
               if [[ "$line" == *.* ]]; then
-                # 包含 . 的使用 DOMAIN-SUFFIX
-                echo "DOMAIN-SUFFIX,${line}" >> "$output_file"
+                if [[ "$line" =~ ^[a-zA-Z0-9][-a-zA-Z0-9]*\.[a-zA-Z0-9][-a-zA-Z0-9]*\.[a-zA-Z]{2,}$ || "$line" =~ ^[a-zA-Z0-9][-a-zA-Z0-9]*\.[a-zA-Z]{2,}$ ]]; then
+                  # 完整域名使用 DOMAIN
+                  echo "DOMAIN,${line}" >> "$output_file"
+                else
+                  # 包含 . 但不是完整域名的使用 DOMAIN-SUFFIX
+                  echo "DOMAIN-SUFFIX,${line}" >> "$output_file"
+                fi
               else
                 # 不包含 . 的使用 DOMAIN-KEYWORD
                 echo "DOMAIN-KEYWORD,${line}" >> "$output_file"
