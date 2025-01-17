@@ -1,0 +1,153 @@
+name: Convert Rules
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */12 * * *"
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set variables
+        run: |
+          echo "RELEASE_NAME=Released on $(date +%Y%m%d%H%M)" >> $GITHUB_ENV
+          echo "TAG_NAME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
+
+          # Domain rules
+          echo "private=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.list" >> $GITHUB_ENV
+          echo "cn=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.list" >> $GITHUB_ENV
+          echo "apple_cn=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple-cn.list" >> $GITHUB_ENV
+          echo "github=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.list" >> $GITHUB_ENV
+          echo "youtube=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.list" >> $GITHUB_ENV
+          echo "google=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.list" >> $GITHUB_ENV
+          echo "telegram=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.list" >> $GITHUB_ENV
+          echo "netflix=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.list" >> $GITHUB_ENV
+          echo "ai_chat=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-chat-!cn.list" >> $GITHUB_ENV
+          echo "microsoft=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.list" >> $GITHUB_ENV
+          echo "tiktok=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.list" >> $GITHUB_ENV
+          echo "paypal=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.list" >> $GITHUB_ENV
+          echo "speedtest=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/ookla-speedtest.list" >> $GITHUB_ENV
+          echo "games=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games.list" >> $GITHUB_ENV
+          echo "game_accelerator_cn=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-game-accelerator-cn.list" >> $GITHUB_ENV
+          echo "geolocation_not_cn=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.list" >> $GITHUB_ENV
+
+          # IP rules
+          echo "cn_ip=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.list" >> $GITHUB_ENV
+          echo "google_ip=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.list" >> $GITHUB_ENV
+          echo "netflix_ip=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.list" >> $GITHUB_ENV
+          echo "telegram_ip=https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.list" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Checkout the default branch
+        uses: actions/checkout@v4
+
+      - name: Make directory
+        run: |
+          mkdir -p ruleset
+
+      - name: Generate domain rules
+        run: |
+          # Private
+          curl -sSL ${private} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/private.list
+
+          # CN
+          curl -sSL ${cn} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/cn.list
+
+          # Apple CN
+          curl -sSL ${apple_cn} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/apple-cn.list
+
+          # GitHub
+          curl -sSL ${github} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/github.list
+
+          # YouTube
+          curl -sSL ${youtube} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/youtube.list
+
+          # Google
+          curl -sSL ${google} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/google.list
+
+          # Telegram
+          curl -sSL ${telegram} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/telegram.list
+
+          # Netflix
+          curl -sSL ${netflix} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/netflix.list
+
+          # AI Chat
+          curl -sSL ${ai_chat} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/ai-chat.list
+
+          # Microsoft
+          curl -sSL ${microsoft} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/microsoft.list
+
+          # TikTok
+          curl -sSL ${tiktok} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/tiktok.list
+
+          # PayPal
+          curl -sSL ${paypal} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/paypal.list
+
+          # Speedtest
+          curl -sSL ${speedtest} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/speedtest.list
+
+          # Games
+          curl -sSL ${games} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/games.list
+
+          # Game Accelerator CN
+          curl -sSL ${game_accelerator_cn} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/game-accelerator-cn.list
+
+          # Geolocation not CN
+          curl -sSL ${geolocation_not_cn} | grep -v '^#' | sed 's/^/DOMAIN-SUFFIX,/' > ruleset/geolocation-not-cn.list
+
+      - name: Generate IP rules
+        run: |
+          # CN IP
+          curl -sSL ${cn_ip} | grep -v '^#' | sed 's/^/IP-CIDR,/' > ruleset/cn-ip.list
+
+          # Google IP
+          curl -sSL ${google_ip} | grep -v '^#' | sed 's/^/IP-CIDR,/' > ruleset/google-ip.list
+
+          # Netflix IP
+          curl -sSL ${netflix_ip} | grep -v '^#' | sed 's/^/IP-CIDR,/' > ruleset/netflix-ip.list
+
+          # Telegram IP
+          curl -sSL ${telegram_ip} | grep -v '^#' | sed 's/^/IP-CIDR,/' > ruleset/telegram-ip.list
+
+      - name: Move files to publish directory
+        run: |
+          mkdir -p publish
+          cp -r ruleset ./publish/
+
+      - name: Release and upload assets
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ env.RELEASE_NAME }}
+          tag_name: ${{ env.TAG_NAME }}
+          draft: false
+          prerelease: false
+          files: |
+            ./publish/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Git push assets to "release" branch
+        run: |
+          cd publish || exit 1
+          git init
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b release
+          git add .
+          git commit -m "${{ env.RELEASE_NAME }}"
+          git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+          git push -f -u origin release
+
+      - name: Purge jsdelivr CDN
+        run: |
+          cd publish || exit 1
+          for file in $(ls ruleset); do
+            curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/ruleset/${file}"
+          done
