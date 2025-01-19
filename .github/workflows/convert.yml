@@ -149,14 +149,6 @@ jobs:
             while IFS= read -r line; do
               # 跳过注释和空行
               [[ "$line" =~ ^#|^$ ]] && continue
-              
-              if [[ "$line" =~ ":" ]]; then
-                # IPv6 地址
-                echo "IP-CIDR6,${line},no-resolve" >> "$output_file"
-              else
-                # IPv4 地址
-                echo "IP-CIDR,${line},no-resolve" >> "$output_file"
-              fi
             done
           }
 
