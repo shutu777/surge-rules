@@ -19,6 +19,11 @@
 
 ### DOMAIN-SET:
 
+私有域名列表：
+
+- https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/private.list
+- https://cdn.jsdelivr.net/gh/shutu777/surge-rules@release/ruleset/private.list
+
 直连域名列表：
 
 - https://raw.githubusercontent.com/shutu777/surge-rules/release/ruleset/cn.list
